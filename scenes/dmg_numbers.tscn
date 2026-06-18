@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dyll8okuak2if"]
+
+[ext_resource type="Script" uid="uid://bu285v48sgvgl" path="res://scripts/systems/effects/dmg_numbers.gd" id="1_qah4g"]
+
+[node name="dmgnmb" type="Node2D" unique_id=447293094]
+script = ExtResource("1_qah4g")

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dh14ncttl81wl"]
+
+[ext_resource type="Script" uid="uid://bg0mykp68d8yw" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b8hs32euo8a0m" path="res://scenes/player/player.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://di7qpycpvq6k7" path="res://scenes/enemies/enemy.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dyll8okuak2if" path="res://scenes/dmg_numbers.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://danmbbhklfd2q" path="res://sprites/player.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://djfqfu5100igc" path="res://sprites/slime.png" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://d0qf4m2yshr8k" path="res://sprites/tilemap.png" id="7_o6xl0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o6xl0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbgi4"]
+radius = 17.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
+radius = 8.0
+height = 20.0
+
+[node name="Node2D" type="Node2D" unique_id=1193797562]
+material = SubResource("CanvasItemMaterial_o6xl0")
+script = ExtResource("1_jyhfs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2081644141]
+position = Vector2(13.999999, 138)
+scale = Vector2(3.5807292, 3.5598962)
+texture = ExtResource("7_o6xl0")
+
+[node name="player" parent="." unique_id=1727738143 instance=ExtResource("2_sugp2")]
+position = Vector2(19, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1530856350]
+position = Vector2(113, -35)
+scale = Vector2(1.0460185, 1)
+texture = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=939987186]
+position = Vector2(146, -19)
+shape = SubResource("CapsuleShape2D_tbgi4")
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1406312112]
+position = Vector2(146, -93)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player" unique_id=140256429]
+
+[node name="enemy1" parent="." unique_id=82183287 instance=ExtResource("3_jyhfs")]
+position = Vector2(437, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy1" unique_id=1780903244]
+scale = Vector2(0.8285451, 0.9867914)
+texture = ExtResource("5_tefeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy1" unique_id=605196393]
+position = Vector2(-8, 22)
+shape = SubResource("CapsuleShape2D_tefeu")
+
+[node name="dmgnmb" parent="." unique_id=447293094 instance=ExtResource("4_jyhfs")]
+position = Vector2(0, -1)
